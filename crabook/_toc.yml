@@ -25,6 +25,8 @@ parts:
       - file: about/viewers/flood
         title: Flood hazard datasets
       - file: about/viewers/external
+  - file: about/start
+    title: How to start
 - caption: 🌍 CRA Steps
   chapters:
   - file: CRA_steps/framework
