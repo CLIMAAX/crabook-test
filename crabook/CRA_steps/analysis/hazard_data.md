@@ -20,11 +20,17 @@ Basic properties of the atmosphere like temperature, wind, and precipitation amo
 
 ### Observations
 
-:::{dropdown} E-OBS (Europe, gridded)
+:::{dropdown} E-OBS
 
 Calculated from station data acquired through the network of the European Climate Assessment & Dataset (ECA&D) project. The observational data is gridded to regular latitude-longitude grid and is available at 0.1 and 0.25 degrees horizontal resolution. The dataset is daily, meaning the observations cover 24 hours per time step. Temporal coverage spans from 1950 to present. Available variables on daily basis: mean, minimum and maximum temperature, total precipitation, mean sea level pressure, mean wind speed at 10-meter height, mean relative humidity and surface shortwave downwelling radiation (i.e. solar radiation) measured at Earth’s surface. The dataset covers the European land areas: 25N-71.5N x 25W-45E.
 
 The data files are in NetCDF-4 format and can be downloaded via {abbr}`C3S (Copernicus Climate Change Service)` {abbr}`CDS (Climate Data Store)` - __[E-OBS daily gridded meteorological data for Europe from 1950 to present derived from in-situ observations](https://cds.climate.copernicus.eu/datasets/insitu-gridded-observations-europe?tab=overview)__ and via __[ECA&D](https://www.ecad.eu/download/ensembles/download.php)__.
+
+Dataset
+: ...
+
+Spatial coverage
+: Europe; gridded
 :::
 
 
@@ -67,10 +73,13 @@ Dataset
   [hourly data on pressure levels](https://doi.org/10.24381/cds.bd0915c6)
 
 Temporal coverage
-: 1940 to present (regularly updated); hourly timesteps
+: 1940 to present (regularly updated)
 
 Spatial coverage
-: global; 0.25° horizontal resolution
+: global
+
+Resolution
+: 0.25° horizontal
 
 Format
 : GRIB, NetCDF
@@ -131,38 +140,66 @@ Both CMIP5 and CMIP6 data files are in NetCDF-4 format and can be downloaded via
 :::
 
 
-:::{dropdown} CORDEX regional climate model data
+:::{dropdown} CORDEX: Coordinated Regional Climate Downscaling Experiment
 
-High-resolution regional climate model simulations for Europe, produced by a consortium of European research institutions. The dataset provides projections of future climate change at a regional scale, with a resolution of 12.5 km. EURO-CORDEX data covers the period from 1950 to 2100, including the historical runs for 1950-2005. The CORDEX experiments are using the RCP 2.6, 4.5 and 8.5 scenarios providing different pathways of the future climate forcing.
-
-The datasets can be accessed from {abbr}`C3S (Copernicus Climate Change Service)` {abbr}`CDS (Climate Data Store)` __[CORDEX regional climate model data on single levels](https://cds.climate.copernicus.eu/datasets/projections-cordex-domains-single-levels?tab=overview)__ and they are widely used in climate research, impact assessments, and adaptation planning at the regional level.
+High-resolution regional climate model simulations for Europe, produced by a consortium of European research institutions. The dataset provides projections of future climate change at a regional scale, with a resolution of 12.5 km. EURO-CORDEX data covers the period from 1950 to 2100, including the historical runs for 1950-2005. The datasets are widely used in climate research, impact assessments, and adaptation planning at the regional level.
 
 Dataset
 : https://doi.org/10.24381/cds.bc91edc3
+
+Temporal coverage
+: TODO
+
+Scenarios
+: RCP 2.6, 4.5 and 8.5 (availability varies with domain and model)
+
+Spatial coverage
+: See https://cordex.org/domains/
+
+Format
+: NetCDF
+
+Access requirements
+: ECMWF account for CDS
+
+In workflows
+: <img src="../../images/icon_s/icon_s_heavy_rainfall.png" alt="" class="hazard-icon"> [Extreme precipitation](../../notebooks/workflows/HEAVY_RAINFALL/01_Extreme_precipitation/Extreme_precipitation_Intro),
+  <img src="../../images/icon_s/icon_s_heatwaves.png" alt="" class="hazard-icon"> [Urban heatwaves](../../notebooks/workflows/HEATWAVES/01_Urban_heatwaves/heatwave_intro),
+  <img src="../../images/icon_s/icon_s_droughts.png" alt="" class="hazard-icon"> [Agricultural drought](../../notebooks/workflows/DROUGHTS/02_agriculture_drought/AGRICULTURE_Risk_workflow_description),
+  <img src="../../images/icon_s/icon_s_snow.png" alt="" class="hazard-icon"> [Heavy snowfall & blizzards](../../notebooks/workflows/SNOW/01_Heavy_snowfall_and_blizzards/Risk_workflow_description_SNOW_BLIZZARDS)
 :::
 
 
-:::{dropdown} ISIMIP3b bias-adjusted atmospheric climate input data
+:::{dropdown} ISIMIP3b: bias-adjusted atmospheric climate input data
 
 TODO
+
+Dataset
+: TODO
 
 In workflows
 : <img src="../../images/icon_s/icon_s_droughts.png" alt="" class="hazard-icon"> [Relative drought](../../notebooks/workflows/DROUGHTS/01_relative_drought/Risk_workflow_description_RELATIVE_DROUGHT)
 :::
 
 
-:::{dropdown} ECLIPS
+:::{dropdown} ECLIPS-2.0: bias-corrected EURO-CORDEX
 
 TODO
+
+Dataset
+: https://doi.org/10.5281/zenodo.3952159
 
 In workflows
 : <img src="../../images/icon_s/icon_s_fire.png" alt="" class="hazard-icon"> [Wildfire (ML approach)](../../notebooks/workflows/FIRE/01_wildfire_ML/Risk_workflow_description_FIRE_ML)
 :::
 
 
-:::{dropdown} CHELSA
+:::{dropdown} CHELSA: Climatologies at high resolution for the earth’s land surface areas
 
 TODO
+
+Dataset
+: https://chelsa-climate.org/
 
 In workflows
 : <img src="../../images/icon_s/icon_s_fire.png" alt="" class="hazard-icon"> [Wildfire (ML approach)](../../notebooks/workflows/FIRE/01_wildfire_ML/Risk_workflow_description_FIRE_ML)
@@ -205,31 +242,38 @@ Dataset
 : http://data.europa.eu/89h/jrc-floods-floodmapgl_rp50y-tif
 
 Spatial coverage
-: Global, except Greenland and Antarctica and small islands with river basins smaller than 500 km².
+: Global, except Greenland and Antarctica and small islands with river basins smaller than 500 km²
 
 Resolution
-: 90 m (3 arcseconds).
+: 90 m (3 arcseconds)
 
 Format
 : GeoTIFF
 :::
 
 
-:::{dropdown} WRI Aqueduct Floods
-
-TODO
+:::{dropdown} WRI Aqueduct Floods Hazard Maps
 
 Dataset
-: https://www.wri.org/aqueduct
+: https://www.wri.org/data/aqueduct-floods-hazard-maps
+
+Documentation
+: https://www.wri.org/research/aqueduct-floods-methodology
 
 Temporal coverage
-: TODO
+: 2010, 2030, 2050, 2080
+
+Scenarios
+: RCP4.5/SSP2, RCP8.5/SSP2, RCP8.5/SSP3
 
 Spatial coverage
-: TODO
+: global
+
+Resolution
+: 30'' x 30'' horizontal
 
 Format
-: TODO
+: GeoTIFF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_floods.png" alt="" class="hazard-icon"> [River floods](../../notebooks/workflows/FLOODS/02_River_flooding/FLOOD_RIVER_intro)
@@ -238,19 +282,16 @@ In workflows
 
 :::{dropdown} Deltares Global Flood Maps
 
-TODO
+Inundation maps of flood depth.
 
 Dataset
 : https://planetarycomputer.microsoft.com/dataset/deltares-floods
 
-Temporal coverage
-: TODO
-
 Spatial coverage
-: TODO
+: global
 
 Format
-: TODO
+: Zarr, NetCDF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_floods.png" alt="" class="hazard-icon"> [Coastal floods](../../notebooks/workflows/FLOODS/01_Coastal_flooding/Risk_workflow_description_FLOOD_COASTAL)
@@ -259,7 +300,7 @@ In workflows
 
 :::{dropdown} Global sea level change indicators from 1950 to 2050 derived from reanalysis and high resolution CMIP6 climate projections
 
-TODO
+Statistical indicators of tides, storm surges and sea level that can be used to characterize global sea level in present-day conditions and also to assess changes under climate change.
 
 Dataset
 : https://doi.org/10.24381/cds.6edf04e0
@@ -267,11 +308,11 @@ Dataset
 Temporal coverage
 : 1950 to 2050
 
-Spatial coverage
-: TODO
+Scenarios
+: SSP5-8.5
 
-Format
-: TODO
+Spatial coverage
+: global
 
 In workflows
 : <img src="../../images/icon_s/icon_s_floods.png" alt="" class="hazard-icon"> [Coastal floods](../../notebooks/workflows/FLOODS/01_Coastal_flooding/Risk_workflow_description_FLOOD_COASTAL)
@@ -280,19 +321,16 @@ In workflows
 
 :::{dropdown} IPCC 6th Assessment Report Sea Level Projections
 
-TODO
+Sea-level projections associated with the Intergovernmental Panel on Climate Change Sixth Assessment Report.
 
 Dataset
-: https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool
-
-Temporal coverage
-: TODO
+: [Zenodo](https://doi.org/10.5281/zenodo.5914709), [NASA Sea Level Projection Tool](https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool)
 
 Spatial coverage
-: TODO
+: global
 
 Format
-: TODO
+: NetCDF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_floods.png" alt="" class="hazard-icon"> [Coastal floods](../../notebooks/workflows/FLOODS/01_Coastal_flooding/Risk_workflow_description_FLOOD_COASTAL)
@@ -303,19 +341,22 @@ In workflows
 
 :::{dropdown} Heat waves and cold spells in Europe derived from climate projections
 
-TODO
+Number of hot and cold spell days using different European-wide and national/regional definitions developed within the C3S European Health service.
 
 Dataset
 : https://doi.org/10.24381/cds.9e7ca677
 
 Temporal coverage
-: TODO
+: 1986 to 2085
 
 Spatial coverage
-: TODO
+: European region (approx. 27°N–72°N and 22°W–45°E)
+
+Resolution
+: 0.1° x 0.1° regular latitude-longitude grid
 
 Format
-: TODO
+: NetCDF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_heatwaves.png" alt="" class="hazard-icon"> [Urban heatwaves](../../notebooks/workflows/HEATWAVES/01_Urban_heatwaves/heatwave_intro)
@@ -324,19 +365,17 @@ In workflows
 
 :::{dropdown} Online Global Land Surface Temperature Estimation from Landsat 
 
-TODO
-
 Dataset
 : https://rslab.gr/Landsat_LST.html
 
 Temporal coverage
-: TODO
+: past; depends on satellite
 
 Spatial coverage
-: TODO
+: global
 
 Format
-: TODO
+: GeoTIFF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_heatwaves.png" alt="" class="hazard-icon"> [Urban heatwaves](../../notebooks/workflows/HEATWAVES/01_Urban_heatwaves/heatwave_intro)
@@ -347,7 +386,7 @@ In workflows
 
 :::{dropdown} Fire danger indicators for Europe from 1970 to 2098 derived from climate projections
 
-TODO
+Projections of fire danger indicators for Europe based upon the Canadian Fire Weather Index System (FWI) under future climate conditions
 
 Dataset
 : https://doi.org/10.24381/cds.ca755de7
@@ -356,10 +395,13 @@ Temporal coverage
 : 1970 to 2098
 
 Spatial coverage
-: TODO
+: Europe
+
+Spatial resolution
+: 0.11° x 0.11° horizontal
 
 Format
-: TODO
+: NetCDF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_fire.png" alt="" class="hazard-icon"> [Wildfire (FWI)](../../notebooks/workflows/FIRE/02_wildfire_FWI/FWI_Risk_Description)
@@ -368,7 +410,7 @@ In workflows
 
 :::{dropdown} 30-Year Canadian Fire Weather Index Simulations over Europe: CMIP6-Informed Temperature and Precipitation Perturbations
 
-TODO
+30-year Canadian Fire Weather Index (FWI), generated using the Global ECMWF Fire Forecast model, forced by ERA5 reanalysis data (1981-2010). Simulations incorporate perturbations in temperature and precipitation forcings based on CMIP6 climate projections under the SSP2-4.5 medium mitigation scenario. 
 
 Dataset
 : https://doi.org/10.5281/zenodo.10458185
@@ -379,6 +421,9 @@ Temporal coverage
 Spatial coverage
 : Europe (geographical)
 
+Resolution
+: 31 km horizontal
+
 Format
 : GRIB
 :::
@@ -388,19 +433,22 @@ Format
 
 :::{dropdown} Winter windstorm indicators for Europe from 1979 to 2021 derived from reanalysis
 
-TODO
+Climatological indicators on European winter windstorms and their economic impact derived from ERA5 reanalysis.
 
 Dataset
 : https://doi.org/10.24381/cds.9b4ea013
 
 Temporal coverage
-: 1979 to 2021
+: 1979 to 2021; October to March
 
 Spatial coverage
-: TODO
+: 20°W-35°E, 35°N-70°N
+
+Resolution
+: 1 km horizontal
 
 Format
-: TODO
+: NetCDF
 
 In workflows
 : <img src="../../images/icon_s/icon_s_wind.png" alt="" class="hazard-icon"> [Windstorm](../../notebooks/workflows/STORMS/01_windstorm/Risk_workflow_description_STORMS)
