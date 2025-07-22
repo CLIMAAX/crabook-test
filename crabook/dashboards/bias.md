@@ -1,12 +1,12 @@
 # Model bias dashboard
 
 
-<div>
+<div class="full-width">
 
-  <div id="dashboard-bias-map" style="min-height: 500px;"><svg><g></g></svg></div>
-  <div>
+  <div id="dashboard-bias-map" style="min-height: 500px;"></div>
+  <div style="display: flex; flex-direction: row; margin-top: 20px; margin-bottom: 20px;">
     <div id="dashboard-bias-scatter"></div>
-    <div if="dashboard-bias-timeseries"></div>
+    <div id="dashboard-bias-timeseries"></div>
   </div>
 
 </div>
@@ -21,7 +21,7 @@ require.config({
 });
 
 
-function createNutsMapPlotly(node) {
+function createMap(node) {
 
   const mapData = [{
     type: 'choropleth',
@@ -38,25 +38,93 @@ function createNutsMapPlotly(node) {
   const layout = {
     geo: {
       projection: {
-        type: 'conic conformal'
+        type: 'conic conformal',
+        scale: 8
       },
-      lonaxis: {
-        range: [-15, 45]
-      },
-      lataxis: {
-        range: [34, 72]
+      center: {
+        lon: 15,
+        lat: 55
       },
     },
     margin: { t: 0, b: 0 },
-    width: "900px"
+    width: 1000,
+    height: 500
   };
 
-  Plotly.newPlot(node, mapData, layout, { responsive: true });
+  return Plotly.newPlot(node, mapData, layout);
 
 }
 
 
 
+function createScatter(node, title) {
+  
+  const numPoints = 25;
+  const x = Array.from({ length: numPoints }, () => Math.random());
+  const y = Array.from({ length: numPoints }, () => Math.random());
+  const colors = Array.from({ length: numPoints }, () => Math.random());
+
+  const trace = {
+    x: x,
+    y: y,
+    mode: 'markers',
+    marker: {
+      size: 10,
+      color: colors,
+      colorscale: 'Blackbody',
+    },
+    type: 'scatter'
+  };
+
+  const layout = {
+    width: 550,
+    height: 350,
+    margin: { t: 50, b: 0 },
+    title: {
+      text: title,
+    },
+    shapes: [
+      {
+        type: 'line',
+        x0: 0.5, x1: 0.5,
+        y0: 0, y1: 1,
+        line: {color: 'red', width: 2}
+      },
+      {
+        type: 'line',
+        x0: 0, x1: 1,
+        y0: 0.5, y1: 0.5,
+        line: {color: 'blue', width: 2}
+      },
+    ]
+
+  };
+
+  return Plotly.newPlot(node, [trace], layout);
+}
+
+
+function createTimeseries(node) {
+  const x = [0, 1, 2, 3, 4, 5];
+  const y = [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()];
+
+  const trace = {
+    x: x,
+    y: y,
+    mode: 'lines+markers',
+    type: 'scatter',
+    line: {color: 'blue'},
+    marker: {size: 8}
+  };
+
+  const layout = {
+    width: 550,
+    height: 350,
+    margin: { t: 50, b: 0 },
+  };
+
+  return Plotly.newPlot(node, [trace], layout);
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -64,16 +132,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const nodeScatter = document.getElementById("dashboard-bias-scatter");
     const nodeTimeseries = document.getElementById("dashboard-bias-timeseries");
 
-    //require(["d3"], (d3) => {
-    //    const map = createNutsMapD3(d3);//(dashboard);
-    //
-    //});
-
     require(["Plotly"], (_) => {
-        const map = createNutsMapPlotly(nodeMap);
+        createMap(nodeMap);
+        createScatter(nodeScatter);
+        createTimeseries(nodeTimeseries);
 
-        //const scatter = createScatterPlot();
-    });
+        nodeMap.on('plotly_click', function(eventData) {
+          const pointIndex = eventData.points[0].pointIndex;
+
+          console.log(eventData.points[0].location);
+
+          //better: update with plotly react
+          createScatter(nodeScatter, eventData.points[0].location)
+          createTimeseries(nodeTimeseries, eventData.points[0].location)
+        });
+
+        });
 
 });
 
