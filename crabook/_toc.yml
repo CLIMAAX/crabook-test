@@ -5,6 +5,13 @@ parts:
   chapters:
   - file: about/climaax
     title: The CLIMAAX project
+  - file: about/examples
+    title: Regional examples
+    sections:
+    - file: about/examples/setubal
+      title: Setúbal example
+    - file: about/examples/zilina
+      title: Žilina example
   - file: about/start
     title: How to start
 - caption: CRA steps
