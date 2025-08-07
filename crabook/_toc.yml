@@ -156,6 +156,13 @@ parts:
           title: Hazard Assessment
         - file: notebooks/workflows/FIRE/02_wildfire_FWI/FWI_Risk_Assessment
           title: Risk Assessment
+      - file: notebooks/workflows/FIRE/03_wildfire_response/workflow_description
+        title: FWI response model
+        sections:
+        - file: notebooks/workflows/FIRE/03_wildfire_response/hazard_assessment_historical
+        - file: notebooks/workflows/FIRE/03_wildfire_response/hazard_assessment_response
+        - file: notebooks/workflows/FIRE/03_wildfire_response/hazard_assessment_projections
+        - file: notebooks/workflows/FIRE/03_wildfire_response/risk_assessment_population
   - file: notebooks/workflows/snow
     title: ❄️ SNOW
     sections:
@@ -204,6 +211,7 @@ parts:
     - file: resources/datasets/droughtrisk_sample_nuts3
     - file: resources/datasets/precipitation_idf_europe
     - file: resources/datasets/wildfire_sample_cat
+    - file: resources/datasets/fwi_1981-2010_europe
     - file: resources/datasets/eclips2.0_mirror
     - file: resources/datasets/effis_mirror
   - url: https://github.com/CLIMAAX/crabook/releases
