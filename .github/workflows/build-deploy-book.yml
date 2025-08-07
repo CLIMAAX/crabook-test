@@ -42,14 +42,14 @@ jobs:
         jupyter-book build crabook
 
     - name: Upload build
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/test'
       uses: actions/upload-pages-artifact@v3
       with:
         path: crabook/_build/html
 
   # This job publishes the book to Github Pages
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: ${{ (github.ref == 'refs/heads/test') && (github.repository == 'CLIMAAX/crabook-test') }}
 
     # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
     permissions:
