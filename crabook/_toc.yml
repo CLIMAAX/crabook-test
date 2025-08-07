@@ -5,6 +5,16 @@ parts:
   chapters:
   - file: about/climaax
     title: The CLIMAAX project
+  - file: about/viewers
+    title: European map viewer
+    sections:
+      - file: about/viewers/heatwave
+        title: Heatwave datasets
+      - file: about/viewers/flood
+        title: Flood hazard datasets
+      - file: about/viewers/windstorm
+        title: Windstorm hazard datasets
+      - file: about/viewers/external
   - file: about/start
     title: How to start
 - caption: CRA steps
@@ -194,8 +204,6 @@ parts:
     - file: resources/FAQ/vulnerability_curves
   - file: resources/glossary
     title: Glossary
-  - file: about/viewers/external
-    title: Dashboards and explorers
   - file: resources/software
     title: Software
   - file: resources/datasets
